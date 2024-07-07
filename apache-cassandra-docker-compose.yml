@@ -1,0 +1,17 @@
+version: '3' 
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: apache-cassandra
+    ports:
+    - "9042:9042"
+    environment:
+    - CASSANDRA_USER=admin
+    - CASSANDRA_PASSWORD=Pa55w0rd
+    - METADATA_SCHEMA_REQUEST_TIMEOUT=100
+    - REQUEST_TIMEOUT=100
+    - DEFAULT_REQUEST_TIMEOUT_SECONDS=100
+    - DEFAULT_CONNECT_TIMEOUT_SECONDS=100
+    - CONTROL_CONNECTION_TIMEOUT=100
+    volumes:
+    - ./apache-cassandra-data:/var/lib/cassandra
